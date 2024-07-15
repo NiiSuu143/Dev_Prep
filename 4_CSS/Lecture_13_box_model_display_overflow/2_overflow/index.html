@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+            color: darkorange;
+        }
+        .box{
+            height: 100px;
+            width: 200px;
+            /* padding: 30px; */
+            border: 5px solid red;
+            /* border radius 50% */
+            /* border-top: 50px; */
+        }
+        .overflow{
+            /* overflow */
+            /* overflow: visible; */
+            overflow: hidden;
+            /* overflow: scroll; */
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overflow Example</h1>
+    <div class="box overflow">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod impedit delectus eligendi aut, ullam sed minima voluptate inventore animi corporis pariatur adipisci iusto cum, eos ab distinctio veritatis earum perspiciatis consectetur magni sapiente, nesciunt nostrum harum. Perferendis natus eius aliquam! Totam corporis, maiores neque, nulla exercitationem nemo sit, aspernatur maxime nobis asperiores id eius ut accusamus voluptas cumque fuga adipisci commodi placeat repellendus? Quibusdam, unde! Assumenda ut quasi beatae laboriosam, qui provident, illo corrupti ea nemo excepturi accusantium quo sit modi eius blanditiis necessitatibus enim quae nobis iure odio iste ducimus. Perspiciatis similique quaerat dicta nam voluptatum nostrum placeat.
+    </div>
+</body>
+</html>
+
+<!--
+element 
+height
+    * every element will have its height given by the content
+    * user height
+width 
+    Auto :
+        -> inline -> required width(a, img, span)
+        -> block level -> full width parent
+    userdefined
+ -->
+
+ <!--
+box-sizing: content-box;
+    element width : content width(userDefined width) 100px + 8px + 8px + 32px + 32px
+    element height : content height(userDefined height) 100px + 8px + 8px + 32px + 32px
+box-sizing: border-box;
+    element width : content width(userDefined width)100px - 8px - 8px - 32px - 32px
+    element height : content height(userDefined height) 100px - 8px - 8px - 32px - 32px
+ -->

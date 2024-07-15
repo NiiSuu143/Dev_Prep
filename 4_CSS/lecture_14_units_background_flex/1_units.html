@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* Relative unit -> it is a relative unit that depends  on some
+        paramenter and are converted into absolute unit */
+        /* 1rem = font-size of the html tag
+        usually font-size of html tag is 16px */
+
+        html{
+            font-family: sans-serif;
+            /* font-size: 20px; */
+        }
+
+        h2, h3{
+            color: lightcoral;
+            text-align: center;
+        }
+
+        h3{
+            color: lightgreen;
+        }
+
+        /* absolute units */
+        /* they go as it is in the browser */
+        .px{
+            background-color: purple;
+            height: 200px;
+            width: 200px;
+            color: white;
+        }
+
+        .rem{
+            /* 1rem = 16px */
+            font-size: 2rem;
+            height: 10rem;
+            width: 20rem;
+            background-color: lightblue;
+            margin: 1rem;
+        }
+
+        .rem2{
+            /* 1rem = 16px */
+            font-size: 1rem;
+            height: 10rem;
+            width: 10rem;
+            background-color: lightblue;
+            margin: 0.5rem;
+        }
+
+        .vh-vw{
+            /* 100vh -> browser current window-height 
+            100vw -> browser current window-width*/
+            /* height: 200px; */
+            margin-top: 10px;
+            background-color: lightcoral;
+            width: 50vw;
+            height: 20vh;
+        }
+
+        /* percentage */
+        .gp{
+            margin-top: 10px;
+            height: 300px;
+            width: 400px;
+            background-color: lightgreen;
+        }
+
+        .parent{
+            height: 50%;
+            width: 100%;
+            background-color: burlywood;
+        }
+
+        .child{
+            height: 100%;
+            width: 50%;
+            background-color: yellowgreen;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Units Examples</h2>
+    <h3>Absolute</h3>
+    <div class="px">Pixel Element</div>
+    <!-- <div class="rem">Rem Unit</div>
+    <div class="rem2">Rem Unit</div> -->
+    <!-- <div class="vh-vw">VH - Vw Units</div> -->
+    <!-- percentage -->
+     <div class="gp">
+        <div class="parent">
+            <div class="child">Percentage</div>
+         </div>
+     </div>
+</body>
+</html>

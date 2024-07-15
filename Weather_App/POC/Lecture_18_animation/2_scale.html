@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .box{
+            height: 200px;
+            width: 200px;
+            /* transition-property: all; */
+            transition-duration: 2s;
+        }
+
+        .one{
+            background-color: aqua;         
+        }
+
+        .two{
+            background-color: lightcoral;   
+        }
+
+        .three{
+            background-color: lightgreen;
+        }
+
+        .one:hover{
+            /* 100% is the original default size */
+            transform: scaleX(0%);
+        }
+
+        .two:hover{
+            transform: ScaleY(250%);
+        }
+
+        .three:hover{
+            /* it changes in the user's view */
+            /* transform: Scale(200%); */
+            transform: rotate(50deg) scale(200%);
+        }
+    </style>
+</head>
+<body>
+    <h2>Scale</h2>
+    <div class="box one"></div>
+    <div class="box two"></div>
+    <div class="box three"></div>
+</body>
+</html>

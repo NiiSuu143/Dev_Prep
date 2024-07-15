@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Input Example</h2>
+    <!-- we cant write anything in this nickname input bcoz we use "raadonly" -->
+    <label for="nickname">Nickname: </label>   
+    <input type="text" id="nickname" readonly value="dabii_leitan">
+    <!-- input text -->
+    <!-- And if we want to hilighted the bar when we click we need to put same value at "for" and "id" -->
+    <label for="name">Name: </label>   
+    <input type="text" id="name" required>
+    <br>
+    <br>
+    <!-- input number -->
+    <label for="my_num">Number: </label>
+    <input type="number" id="my_num" min="0" max="100" value="5" step="4">
+    <br>
+    <br>
+    <!-- email -->
+    <label for="email">Email: </label>
+    <input type="email" id="email" placeholder="example@example.com">
+    <br>
+    <br>
+    <!-- password -->
+    <label for="password">Password: </label>
+    <input type="password" id="password" placeholder="Enter your password" minlength="10" maxlength="15">
+    <br>
+    <br>
+    <input type="submit">
+
+</body>
+</html>

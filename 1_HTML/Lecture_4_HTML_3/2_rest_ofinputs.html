@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+        <!-- comments -->
+        <label for="comments">Comments</label>
+        <textarea id="comments" cols="20" rows="10"></textarea>
+        <br>
+        <br>
+
+        <!-- dropdowns -->
+        <label for="drop-down">Languages</label>
+        <select id="drop-down">
+            <option value="01">English</option>
+            <option value="02">Hindi</option>
+            <option value="03" selected>Manipuri</option>
+        </select>
+        <br>
+        <br>
+        <!-- Border -->
+        <fieldset>
+            <!-- header of the border -->
+            <legend>Click on your choices</legend>
+            <!-- Check-Box -->
+            <input type="checkbox">
+            <label for="">Coffee</label>
+            <input type="checkbox">
+            <label for="">Tea</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Do you agree to our terms and conditions</legend>
+            <input type="radio" id="yes" name="terms" checked>
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="terms">
+            <label for="no">No</label>
+        </fieldset>
+        <br>
+        <input type="range" min="100" max="1000" value="200">
+        <br>
+        <br>
+        <input type="submit">
+        <input type="reset">
+        
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        uheight ->
+        uwidth ->
+            next element -> newline
+            padding -> 
+            margin ->
+            border ->
+        */
+        .block{
+            /* 
+            uheight -> apply
+            uwidth -> apply
+            padding -> in all direction
+            margin -> in all direction 
+            border -> in all diection
+            */
+            /* height, width, p,m,border */
+            background-color: lightblue;
+            /* userDefined height : works */
+            height: 100px;
+            /* userDefined width : works */
+            width: 100px;
+        }
+
+        .inline{
+            /* 
+            uheight -> not apply
+            uwidth -> not apply
+            padding -> in all direction
+            vertical-margin -> not applied
+            horizontal-margin -> works
+            border -> in all diection
+            */
+            background-color: lightgreen;
+            /* userDefined width: works */
+            width: 100px;
+            height: 100px;
+            display: inline;
+            padding-left: 10px;
+            border: 1px solid;
+        }
+
+        .inline_block{
+            /* 
+            uheight -> apply
+            uwidth -> apply
+            */
+            background-color: mediumorchid;
+            /* userDefined width: works */
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            /* because inline has a bug as it has 4px margin by default */
+            margin-left: -4px;
+        }
+
+        span{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- block level element -->
+    <h2>Display</h2>
+    <span>Hello</span>
+    <div class="block">Hello Hi how are you?</div>
+    <!-- inline element -> style a part of a line -->
+    <div class="inline">I am inline</div>
+    <!-- inline block -->
+    <div class="inline_block">I am inline block</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+            color: darkorange;
+        }
+        .box1{
+            background-color: lightblue;
+            border: 10px solid red;
+            margin-bottom: 10px;
+            width: 200px;
+            height: 300px;
+            /* 
+            element width : 100px + 8px + 8px + 32px + 32px
+            element height : 100px + 8px + 8px + 32px + 32px
+             */
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Model Example</h1>
+    <div class="box1 one">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illo ut, id, aut dolores, eveniet excepturi porro quasi esse repellendus accusantium tempora. Ea cum saepe impedit debitis, sint praesentium maxime mollitia asperiores. Neque quidem aut vel, dolorum nihil doloremque ea possimus, quod reiciendis, aperiam cumque commodi quibusdam adipisci eos provident!
+    </div>
+    <div class="box1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aspernatur quod in nam totam cum vitae sequi voluptas adipisci minus.
+    </div>
+</body>
+</html>
+
+<!--
+element 
+height
+    * every element will have its height given by the content
+    * user height
+width 
+    Auto :
+        -> inline -> required width(a, img, span)
+        -> block level -> full width parent
+    userdefined
+ -->
+
+<!--
+box-sizing: content-box;
+    element width : content width(userDefined width) 100px + 8px + 8px + 32px + 32px
+    element height : content height(userDefined height) 100px + 8px + 8px + 32px + 32px
+box-sizing: border-box;
+    element width : content width(userDefined width)100px - 8px - 8px - 32px - 32px
+    element height : content height(userDefined height) 100px - 8px - 8px - 32px - 32px
+ -->

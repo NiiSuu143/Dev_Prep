@@ -1,0 +1,15 @@
+*{
+    font-family: sans-serif;
+}
+
+p{
+    color: red;
+}
+
+.bggreen{
+    background-color: lightgreen;
+}
+
+#special{
+    text-decoration: underline;
+}
