@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Fetch Data</button>
+
+    <script>
+        const btn = document.querySelector("button");
+
+        // function datapcb(data) {
+        //     console.log("Inside datapcb")
+        //     console.log("data", data);
+        // }
+
+        // function pcb(response) {
+        //     console.log("Inside pcb");
+        //     response.json().then(datapcb);
+        // }
+
+        async function cb() {
+            console.log("I am clicked");
+
+            const url = `http://api.weatherapi.com/v1/current.json?key=7da0731d4f83417db6e155626241607&q=${location}&aqi=no`
+            // fetch -> inbuild function to get http response from the server
+        
+            console.log("Promise Before");
+            // promise base asynchronous function
+            // fetch(url).then(pcb);
+            const response = await fetch(url);
+            const data = response.json();
+            console.log("data ",data);
+            console.log("Promise After")
+        }
+        
+        btn.addEventListener("click", cb);
+
+    </script>
+</body>
+</html>

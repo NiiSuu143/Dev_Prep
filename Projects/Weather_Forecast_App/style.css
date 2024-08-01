@@ -1,0 +1,297 @@
+html{
+    font-family: sans-serif;
+}
+body{
+    display: inline-flex;
+}
+h1{
+    font-size: 50px;
+}
+h2{
+    font-size: 35px;
+    color: white;
+}
+main{
+    height: 100vh;
+    width: 100vw;
+    display: inline-flex;
+    min-height: 660px;
+    min-width: 640px;
+    background-color:white;
+}
+.forecast-container{
+    height: 100%;
+    width: 65%;
+    /* border: solid red; */
+    /* border-radius: 50px; */
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    min-width: 850px;
+    position: relative;
+    background-image: url("icons/dawn10.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.forecastIcon{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    color: white;
+}
+.searchLocation{
+    position: absolute;
+    top: 35px;
+    right: 50px;
+    height: 56px;
+    width: 270px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;    
+    display: flex;
+}
+.searchLocation:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+.currentIcon{
+    height: 100%;
+    width: 30%;
+    /* background-color: blue; */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pinIcon:hover{
+    height: 35px;
+}
+.currentLocation{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+.yourLocation{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255, 0.5);
+}
+.mainLocation{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255, 0.7);
+}
+.forecast-view{
+    /* background-color: cornflowerblue; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 563px;
+}
+.input-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    
+}
+.line1{
+    background-color: white;
+    height: 5px;
+    width: 160px;
+    margin-top: 25px;
+    margin-left: 230px;
+    border-radius: 50px;
+    
+}
+#locationInput{
+    height: 40px;
+    width: 25rem;
+    border-radius: 10px;
+    border: white;
+    background-color: rgb(255, 255, 255, 0.5);
+    /* opacity: 0.5; */
+    font-size: large;
+    padding-left: 20px;
+    color: black;
+    font-weight: bold;
+}
+#locationInput:hover{
+    background-color: rgb(255, 255, 255, 0.8);
+}
+.searchBtn{
+    border-radius: 10px;
+    border: transparent;
+    margin-left: 5px;
+    background-color: rgb(255, 255, 255, 0.5);
+    /* opacity: 0.5; */
+    font-weight: bold;
+    color: black;
+    font-size: 17px;
+}
+.searchBtn:hover{
+    background-color: rgb(255, 255, 255, 0.8);
+    cursor: pointer;
+    /* color: white; */
+}
+.weather-container{
+    background-color: white;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 600px;
+}
+.weather-condition{
+    height: 85%;
+    width: 75%;
+    background-color: white;
+    min-width: 360px;
+    min-height: 630px;
+}
+.today-weather-container{
+    /* border: solid; */
+    height: 50%;   
+}
+.today-weather{
+    background-color: white;
+    height: 70%;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+    min-height: 230px;
+    min-width: 355px;
+    box-shadow: 1px 1px 20px rgb(110, 110, 110);
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.today-weather:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+/* ********** Weather Condition *********** */
+.weather{
+    /* background-color: aqua; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.img{
+    width: 50%;
+}
+.temp{
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.condition{
+    font-size: 42px;
+    font-weight: bold;
+    /* font-size: calc(4vw - 4vh); */
+    margin-bottom: 10px;
+    min-width: 100%;
+    /* display: flex; */
+    word-wrap: break-word;
+}
+.conditionImg{
+    height: 200px;
+    /* margin-left: 10px; */
+    /* background-color: aqua; */
+}
+.day{
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+.dateTime{
+    font-size: 20px;
+}
+/* ***************************************** */
+.daily-weather-container{
+    /* border: solid; */
+    height: 50%;
+    padding-top: 5px;
+}
+.daily-scroll{
+    background-color: white;
+    height: 70%;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 10px;
+    min-height: 230px;
+    min-width: 355px;
+    /* box-shadow: 1px 1px 20px black; */
+    overflow-x: auto;
+}
+/* .daily-scroll::-webkit-scrollbar{
+    display: none;
+} */
+.inner{
+    height: 100%;
+    width: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 7px;
+}
+/* ******************* */
+.rain{
+    /* background-color: aqua; */
+    height: 200px;
+    width: 200px;
+    /* margin-right: 20px; */
+    box-shadow: 1px 1px 10px rgb(110, 110, 110);
+    border-radius: 10%;
+}
+.rain:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.thunderstrom{
+    /* background-color: aqua; */
+    height: 200px;
+    width: 200px;
+    /* margin-right: 20px; */
+    min-height: 170px;
+    box-shadow: 1px 1px 10px rgb(110, 110, 110);
+    border-radius: 10%;
+}
+.thunderstrom:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+/* ********** Rain *********** */
+.sub-weather{
+    height: 100%;
+    /* background-color: aqua; */
+    padding: 20px;
+}
+.temp1{
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.condition1{
+    font-size: 30px;
+    margin-bottom: 10px;
+    min-width: 185px;
+    font-weight: bold ;
+}
+.sub-image{
+    height: 40px;
+}
+.day1{
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+.date1{
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+/* ***************************************** */

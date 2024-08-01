@@ -1,99 +1,92 @@
+/* ***************header************** */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-body{
+
+/* html me pass  */
+body {
     font-family: "Roboto", sans-serif;
-    background-color: white;
-    /* min-height: 430px;
-    min-width: 650px; */
-}
-header{
-    /* outline: 5px solid red; */
-    /* background-color: lightblue; */
-    height: 3rem;
-}
-.titlebar{
-    height: 50%;
-    /* outline: 2px solid red; */
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-.title_img{
-    /* 2rem -> 60% */
-    height: 70%;
-    margin-left: 0.5rem;
-}
-.title{
-    font-size: 0.9rem;
-    font-weight: 500;
+    background-color: rgb(238, 238, 238);
 }
 
-.menu_bar{
+header {
+    height: 5rem;
+    /* background-color: lightcoral; */
+}
+
+.titlebar {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+}
+
+.title-img {
+    /* 2.5rem -> 60% */
+    height: 60%;
+    margin-left: 1rem
+}
+
+.title {
+    font-size: 1rem;
+
+
+}
+
+.menu-bar {
     display: flex;
     gap: 1rem;
-    margin-left: 0.5rem;
-    /* outline: 2px solid green; */
-    /* we need to mention height bcoz div take the size of text */
-    height: 50%;
+    margin-left: 1rem;
     align-items: center;
+    height: 50%;
 }
-.menu{
+
+.menu {
     position: relative;
-    /* border: 1px solid red; */
-    display: inline-block;
 }
-.menu-btn{
-    font-size: 0.9rem;
-    font-weight: 400;
+
+.menu:hover {
+border: 1px solid rgb(7, 93, 133);
+    background-color: rgb(221, 244, 250);
 }
-.menu-btn:hover{
-    background-color: lightblue;
-    cursor: pointer;
-}
-.menu-items{
-    background-color: rgb(242, 242, 242);
-    /* border: 2px solid green; */
+
+.menu-items {
+    background-color: rgb(238, 238, 238);
     position: absolute;
-    top: 0px;
-    left: 0;
-    /* border:2px solid red; */
+    top: 1px;
     width: 9rem;
     display: none;
-    z-index: 1;
-}
-/* popUp */
-.menu:hover .menu-items{
-    display: block;
-}
-li{
-    padding-top: 0.25rem;
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-li:hover{
-    background-color: lightblue;
     cursor: pointer;
 }
-.videoInput{
+
+.menu:hover .menu-items {
+    display: block;
+}
+
+li {
+    padding: 0.25rem;
+}
+li:hover{
+background-color: rgb(172, 172, 172)
+}
+
+.videoInput {
     display: none;
 }
+
 /* main element */
-main{
-    height: calc(100vh - 8rem);
+main {
     background-color: black;
+    height: calc(100vh - 10rem);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#vlc-icon{
-    height: 125px;
-    display: block;
-}
-.video{
+
+.video {
     height: 100%;
-    width: 100%;
-    /* border: 2px solid red; */
 }
-.toast{
+
+.toast {
     color: white;
     font-size: 2rem;
     position: fixed;
@@ -103,9 +96,8 @@ main{
 }
 
 /* footer */
-footer{
+footer {
     height: 5rem;
-    /* background-color: gray; */
     padding-top: 0.5rem;
     padding-bottom: 1rem;
 }
@@ -113,16 +105,18 @@ footer{
 .time-container {
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    align-items: center;
+}
+
+.time-container>* {
+    /* outline: 1px solid red; */
     text-align: center;
-    /* width: 38rem; */
 }
 
 .current-time,.total-time {
     width: 5%;
     min-width: 44px;
-    font-size: 13px;
+
+
 }
 
 .time-slider {
@@ -156,7 +150,7 @@ footer{
 .menu-btns {
     display: flex;
     gap: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-top: 0.5rem;
     cursor: pointer;
     
@@ -192,4 +186,3 @@ i {
 
    
 }
-

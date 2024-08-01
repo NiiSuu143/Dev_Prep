@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+</head>
+<body>
+    <header>
+        <div class="input-container">
+            <input type="text" name="" id="input" placeholder="Enter Location">
+            <button id="search">Search</button>
+        </div>
+    </header>
+    <main>
+        <div class="weather-container">
+            <div class="temperature">21.2</div>
+            <div class="location-date">
+                <div class="location">Manipur</div>
+                <span class="time">10:00</span>
+                <span class="day">Wednesday</span>
+                <span class="date">17/07/2024</span>
+            </div>
+            <div class="weather-state">
+                <img src="./sunny.png" alt="image" height="30px" class="icon">
+                <div class="condition">Sunny</div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>
+
+
+<!-- 
+{
+    "location": {
+        "name": "Manipur",
+        "region": "",
+        "country": "Bangladesh",
+        "lat": 23.65,
+        "lon": 90,
+        "tz_id": "Asia/Dhaka",
+        "localtime_epoch": 1721236757,
+        "localtime": "2024-07-17 23:19"
+    },
+    "current": {
+        "last_updated_epoch": 1721236500,
+        "last_updated": "2024-07-17 23:15",
+        "temp_c": 28.6,
+        "temp_f": 83.6,
+        "is_day": 0,
+        "condition": {
+            "text": "Partly Cloudy",
+            "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+            "code": 1003
+        },
+        "wind_mph": 6.9,
+        "wind_kph": 11.2,
+        "wind_degree": 168,
+        "wind_dir": "SSE",
+        "pressure_mb": 1001,
+        "pressure_in": 29.55,
+        "precip_mm": 0,
+        "precip_in": 0,
+        "humidity": 87,
+        "cloud": 30,
+        "feelslike_c": 35.1,
+        "feelslike_f": 95.2,
+        "windchill_c": 28.7,
+        "windchill_f": 83.6,
+        "heatindex_c": 35.1,
+        "heatindex_f": 95.2,
+        "dewpoint_c": 26.2,
+        "dewpoint_f": 79.2,
+        "vis_km": 10,
+        "vis_miles": 6,
+        "uv": 1,
+        "gust_mph": 11.4,
+        "gust_kph": 18.4
+    }
+} -->

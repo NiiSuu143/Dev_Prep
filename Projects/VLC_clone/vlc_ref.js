@@ -1,31 +1,27 @@
 
-const videobtn = document.querySelector("#videobtn");
+
+const videoBtn = document.querySelector("#videoBtn");
 const videoInput = document.querySelector("#videoInput");
 const videoPlayer = document.querySelector("#main");
-const VLCicon = document.querySelector("#vlc-icon");
 const totalTimeElem = document.querySelector("#totalTime");
 const currentTimeElem = document.querySelector("#currentTime");
 const slider = document.querySelector("#slider");
 
 
-let  video = ""
+let video = ""
 let duration;
 let timerObj;
 let currentPlayTime = 0;
 let isPlaying = false;
 
-const handleInput = ()=> {
-    console.log("input is selected")
-    // you have to click that button
+const handleInput = () => {
+    // console.log("Input is clicked");
+    // you have make it click
     videoInput.click();
 }
-
-const acceptInputHandler = (obj)=> {
-    // console.log("file is selected");
-    // console.log("obj", ob.target.files);
-    // to get file selected
-    // const selectedVideo = obj.target.files[0];
+const acceptInputHandler = (obj) => {
     let selectedVideo;
+    // console.log(obj);
     if (obj.type == "drop") {
         selectedVideo = obj.dataTransfer.files[0]
 
@@ -33,150 +29,143 @@ const acceptInputHandler = (obj)=> {
         selectedVideo = obj.target.files[0];
 
     }
-    // console.log("selected file", selectedFiles)
-    // src -> base64
+    //  src -> base64 
     const link = URL.createObjectURL(selectedVideo);
+    // console.log(link);
 
     const videoElement = document.createElement("video");
     videoElement.src = link;
-    videoElement.setAttribute("class","video");
+    videoElement.setAttribute("class", "video");
     // check if there are any video already present
     if (videoPlayer.children.length > 0) {
 
         // if present -> remove it 
         videoPlayer.removeChild(videoPlayer.children[0]);
     }
+    // now after the above check -> add the videoElement
     videoPlayer.appendChild(videoElement);
-    video = videoElement;
+    video = videoElement
     isPlaying = true;
-    // videoElement.controls="true";
+    setPlayPause();
     videoElement.play();
     videoElement.volume = 0.3;
-    // console.log("duration of the video", video.duration);
+    videoElement.addEventListener("loadedmetadata", function () {
+        // it gives in decimal value -> convert that into seconds
+        duration = Math.round(videoElement.duration);
+        // convert seconds into hrs:mins:secs
+        let time = timeFormat(duration);
+        totalTimeElem.innerText = time;
+        slider.setAttribute("max", duration);
+        startTimer();
 
-    videoElement.addEventListener("loadedmetadata", function(){
-        // your time will there
-         // it gives in decimal value -> convert that into seconds
-         duration = Math.round(videoElement.duration);
-         // convert seconds into hrs:mins:secs
-         let time = timeFormat(duration);
-         totalTimeElem.innerText = time;
-         slider.setAttribute("max", duration);
-         startTimer();
     })
-    VLCicon.style.display = "none";
-
 }
 
-videobtn.addEventListener("click", handleInput);
+videoBtn.addEventListener("click", handleInput);
 // when file is selected
 videoInput.addEventListener("change", acceptInputHandler);
 
 
-/*****volume and speed *******/
+/*******************volume and speed*******************/
+// select the element
 const speedUp = document.querySelector("#speedUp");
 const speedDown = document.querySelector("#speedDown");
-const volumeUP = document.querySelector("#volumeUp");
+const volumeUp = document.querySelector("#volumeUp");
 const volumeDown = document.querySelector("#volumeDown");
 const toast = document.querySelector(".toast");
 
-const speedUpHandler =()=> {
-    // alert("speedUp is clicked");
-    // video -> speed increase
-        // * where is the video 
-    // which property you will use to increase its video
-        // * how much you want to increase
+const speedUpHandler = () => {
+    // * where is the video-> 
     const videoElement = document.querySelector("video");
-
-    if(videoElement==null) {
-        // video is not present then
+    if (videoElement == null) {
         return;
     }
-    if(videoElement.playbackRate > 3) {
+    // i want that playback speed should be at max 300%
+    if (videoElement.playbackRate > 3) {
         return;
     }
+    // video -> speed increase
     const increaseSpeed = videoElement.playbackRate + 0.5;
     videoElement.playbackRate = increaseSpeed;
-    console.log("Increase Speed", increaseSpeed);
+
     showToast(increaseSpeed + "X");
+
+    // which property you will use to increase it's speed 
+    // * how much you want to increase
 }
-
-const speedDownHandler = () => {
+const speedDownhandler = () => {
     const videoElement = document.querySelector("video");
-
-    if(videoElement == null) {
+    if (videoElement == null) {
         return;
     }
-    if(videoElement.playbackRate > 0) {
-        const decreaseSpeed = videoElement.playbackRate - 0.5;
-        console.log("Decrease Speed", decreaseSpeed);
-        videoElement.playbackRate = decreaseSpeed;
-        showToast(decreaseSpeed + "X");
+    if (videoElement.playbackRate > 0) {
+        // video -> speed decrease
+        const decreasedSpeed = videoElement.playbackRate - 0.5;
+        videoElement.playbackRate = decreasedSpeed;
+        console.log("decreased speed", decreasedSpeed)
+        showToast(decreasedSpeed + "X");
     }
-    
 }
 
 const volumeUpHandler = () => {
-    // alert("clicked");
     // select the video
     const videoElement = document.querySelector("video");
-    if(videoElement == null) {
+    if (videoElement == null) {
         return;
     }
-    if(videoElement.volume >= 0.9) {
+    // property to play with volume 
+    if (videoElement.volume >= 0.99) {
         return;
     }
-    const increaseVolume = videoElement.volume + 0.1;
-    console.log("Increase Volume", increaseVolume);
-    videoElement.volume = increaseVolume;
-    const percentage = (increaseVolume*100) + "%";
-    showToast(percentage);
+    const increasedVolume = videoElement.volume + 0.1
+    videoElement.volume = increasedVolume;
+    // console.log("increseas volume", increasedVolume);
+    const percentage = (increasedVolume * 100) + "%";
+    showToast(percentage)
 }
 
 const volumeDownHandler = () => {
-    // alert("clicked");
     // select the video
     const videoElement = document.querySelector("video");
-    if(videoElement == null) {
+    if (videoElement == null) {
         return;
     }
-    if(videoElement.volume <= 0.1) {
+    // property to play with volume 
+    if (videoElement.volume <= 0.1) {
         videoElement.volume = 0;
-        return;
+        return
     }
     const decreaseVolume = videoElement.volume - 0.1;
-    console.log("Decrease Volume", decreaseVolume);
-    videoElement.volume = decreaseVolume;
-    const percentage = (decreaseVolume*100) + "%";
-    showToast(percentage);
+    videoElement.volume = decreaseVolume
+    const percentage = (decreaseVolume * 100) + "%";
+    showToast(percentage)
 }
+
 
 function showToast(message) {
     // toast show
     toast.textContent = message;
     toast.style.display = "block";
     setTimeout(() => {
-        toast.style.display = "none";
-    }, 1500)
+        toast.style.display = "none"
+    }, 1000);
 }
+
 
 // identify on which event your logic should trigger
 speedUp.addEventListener("click", speedUpHandler);
-speedDown.addEventListener("click", speedDownHandler);
-volumeUP.addEventListener("click", volumeUpHandler);
+speedDown.addEventListener("click", speedDownhandler)
+volumeUp.addEventListener("click", volumeUpHandler);
 volumeDown.addEventListener("click", volumeDownHandler);
 
 
-/****** Controls **************/
-const playbtn = document.querySelector(".playbtn");
-const fullScreen = document.querySelector("#fullScreen");
-
+/***********controls****************************************/
 const handleFullScreen = () => {
     videoPlayer.requestFullscreen();
 }
 
-fullScreen.addEventListener("click", handleFullScreen);
-
+const fullScreenElem = document.querySelector("#fullScreen");
+fullScreenElem.addEventListener("click", handleFullScreen)
 // adding seek behavior in slider
 slider.addEventListener("change", function (e) {
     let value = e.target.value;

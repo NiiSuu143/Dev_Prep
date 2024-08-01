@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            height: 500px;
+            width: 500px;
+            background-color: slategray;
+            /* flex */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: rotate-bg 5s linear infinite alternate;
+            box-shadow: 2rem 2rem 2rem;
+        }
+
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: hotpink;
+            border: 3px solid black;
+            /* border-radius: 50%; */;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation-name: box-mover;
+            /* equal speed through the animation */
+            animation-timing-function: linear;
+        }
+
+        @keyframes rotate-bg {
+            to {
+                transform: rotate(-360deg);
+            }
+            /* 50%{
+                opacity: 0.1;
+            } */
+        }
+
+        
+
+        @keyframes box-mover {
+            0% {
+                top: 0;
+                left: 0;
+                border-radius: 50px;
+            }
+            25% {
+                left: 0;
+                top: 100%;
+                transform: translateY(-100%);
+                border-radius: 25%;
+                background-color: blue;
+            }
+            50% {
+                background-color: rgb(255, 0, 0);
+                border-radius: 50%;
+                top: 100%;
+                left: 100%;
+                transform: translate(-100%, -100%);
+            }
+            75% {
+                left: 100%;
+                top: 0;
+                transform: translateX(-100%);
+                border-radius: 25%;
+                background-color: yellow;
+            }
+            100% {
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

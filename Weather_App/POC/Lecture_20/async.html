@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Asynchronous Example</h2>
+    <button>Click me</button>
+    <script>
+        // console.log("Before");
+        // setTimeout(() => {
+        //     console.log("b/w");
+        // }, 0)
+        // console.log("After");
+
+
+        // const button = document.querySelector("button");
+        // console.log("Before");
+
+        // button.addEventListener("click", function(){
+        //     console.log("I am clicked");
+        // })
+        // console.log("After");
+
+
+
+        
+        // data get -> asynchronous
+        // console.log("Before");
+        // fetch("").then(function (response) {
+        //     //  HTTP response -> header and body
+        //     // console.log(response);
+        //     if (response.status == 404) {
+        //         alert("Data not found");
+        //     } else if (response.status == 200){
+        //         response.json().then(function(jsonData){
+        //             console.log(jsonData);
+        //         })
+        //     }
+        // })
+        // console.log("After");
+
+
+
+        async function fn() {
+            console.log("inside fn");
+            const response = await fetch("URL");
+            console.log(response);
+            if (response.status == 404) {
+                alert("Data not found");
+            } else if (response.status == 200){
+                const json = await response.json();
+                console.log(json);
+            }
+        }
+        fn();
+
+    </script>
+</body>
+</html>

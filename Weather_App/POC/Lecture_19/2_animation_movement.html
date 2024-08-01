@@ -30,36 +30,61 @@
             /* animation-name: bg-changer; */
             /* animation-duration: 4s; */
             /* animation-iteration-count: infinite; */
+            position: relative;
+            
         }
 
         .box{
             height: 100px;
             width: 100px;
             background-color: hotpink;
-            /* border-radius: 50%; */
-            animation-name: journey-to-circle;
+            border: 3px solid black;
+            /* border-radius: 50%; */;
             animation-duration: 4s;
             animation-iteration-count: infinite;
-            /* animation-fill-mode: forwards; */
-            animation-direction: alternate;
+            animation-fill-mode: forwards;
+            /* animation-direction: alternate; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation-name: box-mover;
+            /* equal speed through the animation */
+            animation-timing-function: linear;
         }
 
-        @keyframes bg-changer {
-            50% {
-                background-color: aqua;
+        
+
+        @keyframes box-mover {
+            0% {
+                top: 0;
+                left: 0;
+                border-radius: 50px;
             }
-        }
-
-        @keyframes journey-to-circle{
-
+            25% {
+                left: 0;
+                top: 100%;
+                transform: translateY(-100%);
+                border-radius: 25%;
+                background-color: blue;
+            }
             50% {
                 background-color: rgb(255, 0, 0);
                 border-radius: 50%;
+                top: 100%;
+                left: 100%;
+                transform: translate(-100%, -100%);
             }
-
+            75% {
+                left: 100%;
+                top: 0;
+                transform: translateX(-100%);
+                border-radius: 25%;
+                background-color: yellow;
+            }
             100% {
-                background-color: honeydew;
-                border-radius: 0%;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
             }
         }
     </style>
