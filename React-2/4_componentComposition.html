@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- React Algorithm -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- ReactDOM Algorithm -->
+    <script   script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- transpiler -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        * {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>State Wala Component Compositions</h1>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const  rootElement = document.getElementById("root");
+
+        function Counter(props) {
+            // create a state for that
+            const [value, setValue] = React.useState(props.initialValue);
+            // // jb bhi update -> react
+            // const value = arr[0];
+            // // the function that is given to you by react
+            // const setValue = arr[1];
+
+            const handleIncrement = () => {
+                // alert("I am clicked");
+                if(value==10) {
+                    return;
+                }
+                setValue(value + 1);
+            }
+
+            const handleDecrement = () => {
+                // alert("I am clicked");
+                if(value==0) {
+                    return;
+                }
+                setValue(value - 1);
+            }
+
+            return <div>
+                <div>{value}</div>
+                <button onClick={handleIncrement}>+ Plus</button>
+                <button onClick={handleDecrement}>- Minus</button>
+            </div>
+        }
+
+        function CounterParent() {
+            return <div>
+                    <Counter initialValue={1}></Counter>
+                    <Counter initialValue={2}></Counter>
+                    <Counter initialValue={3}></Counter>
+                </div>
+        }
+        // ReactDOM
+        ReactDOM.render(<CounterParent></CounterParent>, rootElement);
+    </script>
+</body>
+</html>
