@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0px;
+
+}
+ul{
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+
+
+html{
+  font-family: sans-serif;
+}
+
+header{
+  height: 100px;
+  background-color: slategrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  height: calc(100vh - 100px);
+  background-color: darkslategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.weather-container{
+  display: flex;
+  gap: 1rem;
+}
