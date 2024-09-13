@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function InputBox() {
     const [content, setContent] = useState("");
+    
     const handleAlert = () => {
         alert(content);
         setContent("");

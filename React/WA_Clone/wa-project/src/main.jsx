@@ -7,9 +7,9 @@ import User from './POC/useEffect/User.jsx';
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
-        {/* <App /> */}
+        <App />
         {/* <Routing_App/> */}
-        <User></User>
+        {/* <User></User> */}
     </BrowserRouter>
 
     ,)
