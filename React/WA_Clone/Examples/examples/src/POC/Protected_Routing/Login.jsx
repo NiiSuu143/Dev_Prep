@@ -2,11 +2,17 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 // auth -> step-3
 import { signInWithPopup } from 'firebase/auth';
-import { auth } from '../../../firebase.config';
+import { auth } from '../../../wa-project/firebase.config';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 function Login(props) {
     const setIsLoggedIn = props.setIsLoggedIn;
+
+    if(props.isLoggedIn) {
+      navigate("/");
+      return;
+    }
+
     const navigate = useNavigate();
 
     const handleLogIn = async()=> {

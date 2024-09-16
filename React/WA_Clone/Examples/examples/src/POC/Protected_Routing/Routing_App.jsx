@@ -15,7 +15,7 @@ function Routing_App() {
             setIsLoggedIn={setIsLoggedIn}>
                 <Home setIsLoggedIn={setIsLoggedIn}></Home>
             </ProtectedRoute>}></Route>
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}></Login>}></Route>
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} isloggedIn={isloggedIn}></Login>}></Route>
         </Routes>
     </>
   )
