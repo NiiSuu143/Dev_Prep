@@ -2,6 +2,8 @@
 import React from 'react'
 import { storage } from '../../firebase.config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import ChatPanel from './ChatPanel';
+import ChatWindow from './ChatWindow';
 
 function Home() {
 
@@ -35,13 +37,28 @@ function Home() {
   }
 
   return (
-    <>
-      <div>Home</div>
-      <input type="file" 
+    <main className='h-screen bg-[#E3E1DB]'>
+      {/* <input type="file" 
         accept='image/png image/jpg image/webp'
         onChange={handleChange}
-      ></input>
-    </>
+      ></input> */}
+
+      {/* conditional part -> chat list, profile */}
+      <div className='bg-background w-full h-screen shadow-md flex'>
+      <ChatPanel/>
+
+      <ChatWindow></ChatWindow>
+      </div>
+
+      {/* 
+      1. chat panel Profile Button click -> then it should open
+      2. currently loggedIn user ka data
+       */}
+      {/* <div>Profile</div>
+
+      <div>Empty Chat</div>
+      <div>Idividual Chat</div> */}
+    </main>
   )
 }
 
