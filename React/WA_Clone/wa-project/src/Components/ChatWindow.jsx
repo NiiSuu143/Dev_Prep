@@ -74,6 +74,7 @@ function ChatWindow() {
     }
     getUser();
 
+    // message list
     const msgUnsubscribe = onSnapshot(doc(db, "users_chats", chatId), (doc) => {
       setMsgList(doc.data()?.messages || []);
     })
@@ -101,7 +102,7 @@ function ChatWindow() {
     )
   }
 
-  // here we have to think the things
+  // chat screen code
   return <section className='w-[70%] h-full flex flex-col gap-4 items-center justify-center'>
     <div className='h-full w-full bg-chat-bg flex flex-col'>
       {/* topbar */}
@@ -111,11 +112,18 @@ function ChatWindow() {
           alt="profile picture"
           className='w-9 h-9 rounded-full object-cover'
         />
-        <h3>{secondUser?.name}</h3>
+        <div>
+          <h3>{secondUser?.name}</h3>
+          {secondUser?.lastSeen && (
+            <p className='text-xs text-neutral-400'>
+              last seen at {secondUser?.lastSeen}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* message list */}
-      <div className='flex-grow flex flex-col gap-12 p-6'>
+      <div className='flex-grow flex flex-col gap-12 p-6 overflow-y-scroll'>
         {msgList?.map((m, index) => (
           <div 
             key={index}
@@ -159,21 +167,3 @@ function ChatWindow() {
 }
 
 export default ChatWindow
-
-
-// user jiske sath aap chat kr rahe ho
-// const [ secondUser, setSecondUser ] = useState();
-// const [ secondUserLoading, setSecondUserLoading] = useState(true);
-// const receiverId = params.chatId;
-
-// useEffect(() => {
-//   const getUser = async () => {
-//     const docref = doc(db, "users", receiverId);
-//     const docSnap = await getDoc(docref);
-//     if(docSnap.exists()) {
-//       setSecondUser(docSnap.data());
-//     }
-//     setSecondUserLoading(false);
-//   }
-//   getUser();
-// }, [])

@@ -12,16 +12,20 @@ import { useNavigate } from 'react-router-dom';
 
 async function createUser(authData) {
   const userObject = authData.user;
-  // const id = userObject.uid;
-  // const photoURL = userObject.photoURL;
-  // const name = userObject.displayName;
-  // const email = userObject.email;
   const { uid, photoURL, displayName, email } = userObject;
+  const date = new Date();
+  const timeStamp = date.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  });
+
   // data added at firebase
   await setDoc(doc(db, "users" ,uid), {
     email,
     profile_pic:photoURL,
-    name:displayName
+    name:displayName,
+    lastSeen: timeStamp
   })
   // console.log("user is added");
 }
