@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="get">Get Request</button>
+    <button id="post">Post Request</button>
+    <button id="patch">Patch Request</button>
+    <button id="delete">Delete Request</button>
+    <button id="getAll">Get All Posts</button>
+
+    <script>
+        const getBtn = document.querySelector("#get");
+        const postBtn = document.querySelector("#post");
+        const updateBtn = document.querySelector("#patch");
+        const deleteBtn = document.querySelector("#delete");
+        const getAll = document.querySelector("#getAll");
+
+        // get all posts
+        getAll.addEventListener("click", async() => {
+            const resp = await fetch('https://dummyjson.com/products',{
+                method: "GET",
+            })
+            const respData = await resp.json();
+            // what is the final status of response
+            console.log("status",resp.status);
+            console.log("body",respData);
+        })
+
+        // get a post from server
+        getBtn.addEventListener("click", async() => {
+            // whenever you want to get something from a server -> get request
+            const resp = await fetch('https://dummyjson.com/posts/1',{
+                method: "GET"
+            })
+            const respData = await resp.json();
+            // what is the final status of response
+            console.log("status",resp.status);
+            console.log("body",respData);
+        })
+        
+        // add a post to server
+        postBtn.addEventListener("click", async() => {
+            // whenever you want to get something from a server -> get request
+            const resp = await fetch('https://dummyjson.com/posts/add',{
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    title: 'I am in love with someone.',
+                    userId: 5,
+                    /* other post data */
+                })
+            })
+            const respData = await resp.json();
+            // what is the final status of response
+            console.log("status",resp.status);
+            console.log("body",respData);
+        })
+        
+        // update something on the server by using patch
+        updateBtn.addEventListener("click", async() => {
+            // whenever you want to get something from a server -> get request           
+            const resp = await fetch('https://dummyjson.com/products/1', {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    title: 'iPhone Galaxy +1'
+                })
+            })
+            const respData = await resp.json();
+            // what is the final status of response
+            console.log("status",resp.status);
+            console.log("body",respData);
+        })
+
+        // delete something from the server
+        deleteBtn.addEventListener("click", async() => {
+            // whenever you want to get something from a server -> get request           
+            const resp = await fetch('https://dummyjson.com/products/1', {
+                method: 'DELETE',
+            })
+            const respData = await resp.json();
+            // what is the final status of response
+            console.log("status",resp.status);
+            console.log("body",respData);
+        })
+    </script>
+</body>
+</html>
