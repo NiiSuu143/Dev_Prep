@@ -1,8 +1,7 @@
 const express = require('express');
 const authRouter = express.Router();
 
-const { loginHandler, signupHandler, logoutHandler, protectRouteMiddleware, profilehandler,
-} = require("../controller/authController");
+const { loginHandler, signupHandler, logoutHandler, protectRouteMiddleware, profilehandler } = require("../controller/authController");
 
 authRouter
     .post("/login", loginHandler)

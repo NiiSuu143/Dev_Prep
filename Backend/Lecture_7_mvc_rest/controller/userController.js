@@ -69,7 +69,7 @@ const deleteUser = async (req, res) => {
         const user = await UserModel.findByIdAndDelete(id);
         if (user === null) {
             res.status(404).json({
-                status: "sucess",
+                status: "failure",
                 message: "user does not exist",
 
             })

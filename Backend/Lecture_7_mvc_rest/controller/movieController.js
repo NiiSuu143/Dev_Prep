@@ -2,7 +2,7 @@ const MovieModel = require("../model/movieModel");
 
 const createMovie = async function (req, res) {
     try {
-        const movieObject = movie.body
+        const movieObject = req.body;
         const movie = await MovieModel.create(movieObject);
         // send back the created movie with status 201 (created)
         res.status(201).json(movie);
@@ -15,7 +15,6 @@ const createMovie = async function (req, res) {
         })
     }
 }
-
 
 const getAllMovie = async (req, res) => {
     try {
@@ -40,10 +39,11 @@ const getAllMovie = async (req, res) => {
     }
 
 }
+
 const getMovie = async (req, res) => {
     try {
         const id = req.params.id;
-        const movie = await movieModel.findById(id);
+        const movie = await MovieModel.findById(id);
         // if movie is present -> send the resp
         if (movie) {
             res.status(200).json({
@@ -63,10 +63,11 @@ const getMovie = async (req, res) => {
     }
 
 }
+
 const deleteMovie = async (req, res) => {
     try {
         let { id } = req.params;
-        const movie = await movieModel.findByIdAndDelete(id);
+        const movie = await MovieModel.findByIdAndDelete(id);
         if (movie === null) {
             res.status(404).json({
                 status: "sucess",
