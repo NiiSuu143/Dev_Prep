@@ -1,21 +1,24 @@
 {
-  "name": "backend",
+  "name": "lecture_4_crud_mongodb",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon ./Lecture_3_middleWare_db/db.js"
+    "start": "nodemon api.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.1",
-    "mongoose": "^8.17.1"
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.1",
+    "util": "^0.12.5"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "nodemon": "^3.1.7"
   }
 }
