@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import counterSlice from '../CounterSlice';
+import counterSlice from '../redux/slice/CounterSlice';
 const action = counterSlice.actions;
 
 function ReduxCounter() {

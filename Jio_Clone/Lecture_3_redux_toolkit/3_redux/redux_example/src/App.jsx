@@ -4,6 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NormalCounter from './Components/NormalCounter.jsx'
 import ReduxCounter from './Components/ReduxComponent.jsx'
+import NormalInputCounter from './Components/NormalInputCounter.jsx'
+import ReduxInputContainer from './Components/ReduxInputContainer.jsx'
+import UserComponent from './Components/UserComponent.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +14,10 @@ function App() {
   return (
     <>
       {/* <NormalCounter/> */}
-      <ReduxCounter/>
+      {/* <ReduxCounter/> */}
+      {/* <NormalInputCounter/> */}
+      {/* <ReduxInputContainer/> */}
+      <UserComponent/>
     </>
   )
 }
