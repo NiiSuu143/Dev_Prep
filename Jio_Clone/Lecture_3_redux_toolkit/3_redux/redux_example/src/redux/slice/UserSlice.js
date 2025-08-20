@@ -27,4 +27,6 @@ const UserSlice = createSlice({
     }
 })
 
+const userActions = UserSlice.actions;
+export { userActions };
 export default UserSlice;

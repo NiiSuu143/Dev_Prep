@@ -7,7 +7,7 @@ const store = configureStore({
     reducer: {
         counterSection: counterSlice.reducer,
         counterInputSlice: counterInputSlice.reducer,
-        userSection: UserSlice.reducer
+        userSlice: UserSlice.reducer
     }
 })
 

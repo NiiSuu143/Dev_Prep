@@ -30,7 +30,7 @@ function UserComponent() {
     }
     return (
         <div>
-            <h2>UserId : {user.userId}</h2>
+            <h2>User Id : {user.userId}</h2>
             <h2>Title : {user.title}</h2>
         </div>
     )
