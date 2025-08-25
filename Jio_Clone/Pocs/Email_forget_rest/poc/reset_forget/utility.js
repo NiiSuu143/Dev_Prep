@@ -34,9 +34,7 @@ async function getMediaList(endpoint) {
 
     const url = tmdbBASEURL + endpoint;
     // db wala kaam hoh raha hai
-    console.log("url", url)
     const response = await fetch(url, options)
-    console.log("res", response)
     const data = await response.json() 
     return data;  
 }
