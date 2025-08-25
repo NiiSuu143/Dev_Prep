@@ -180,10 +180,15 @@ async function logoutHandler(req, res) {
 }
 
 // forget password
-
+async function forgetPasswordHandler(req, res) {
+    
+}
 
 // reset password
+async function resetPasswordHandler(req, res) {
+    
+}
 
 module.exports = {
-    signupHandler, loginHandler, protectRouteMiddleware, isAdminMiddleWare, profilehandler, logoutHandler
+    signupHandler, loginHandler, protectRouteMiddleware, isAdminMiddleWare, profilehandler, logoutHandler, forgetPasswordHandler, resetPasswordHandler
 }
