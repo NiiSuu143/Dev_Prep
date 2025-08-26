@@ -28,26 +28,31 @@
 * also needs to be reliable to make sure any fraud confirmation are not made to the server
 **solution** : a specizilzed service that only deals with payment (payment) and takes cut of every transaction
 
+
+
 ### Payment acceptance
+
 * Payment gateway : Razorapy
+
 * Keys
     * Public key : server , client
     * PrivateKaye (is only known by server) -> uniuquely identify a backend for payemnt gateway
+
 * webhook ->
     * you define a url on which razorpay will make the request confirming status of the payment
     * You need to expose your server publically so that payment gateway is able to access your webhook route
 
 ### Steps
-1. Frontent -> provide userId& productId and make a request to a checkout route
+1. Frontent -> provide userId & productId and make a request to a `checkout` route
 
 2. Backend -> checkout route ->
     * RazorPay takes over the whole backend checkout flow
-        * creates an encrypted order using it's libarary-> private key +publickey+user_info(attributes are defined by razorpay)+product info(attributes are defined by razorpay)
+        * creates an `encrypted order` using it's libarary-> `private key` + `publickey` + `user_info(attributes are defined by razorpay)` + `product info(attributes are defined by razorpay)`
         * response with order is send to frontend
 
 3. frontend ->
     * load razorpay script
-    * using razorpay script + publickey and ecrypted order -> payemnt request is made on payement gateway
+    * using razorpay `script` + `publickey` and `ecrypted order` -> payemnt request is made on payement gateway
 
 4. confirmation
     * razorypay -> makes a confirmation request on your backned webhook url
