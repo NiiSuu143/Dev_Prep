@@ -32,6 +32,49 @@ app.get("/streamfile", function(req, res) {
     videoStreamInstance.pipe(res);
 })
 
+
+app.get("/rangeStreaming", function(req, res) {
+    // Get the range from the request header -> video player
+    const range = req.headers.range;
+
+    if(range) {
+        const stat = fs.statSync("1.mp4");
+        const fileSize = stat.size;
+
+        // starting and ending point
+        // `bytes=0-`
+        const parts = range.replace(/bytes=/, "").split("-");
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+
+        // initialize the size of chunk
+        const chunkSize = (end - start) + 1;    // actual size
+        // const chunkSize = 10**6;
+
+        const header = {
+            "Content-Type": "video/mp4",
+            "Content-Length": chunkSize,
+            "Accept-Ranges": "bytes",
+            "Content-Range": `bytes ${start}-${end}/${fileSize}`
+        }
+
+        // Send a 206 Partial Content Status
+        res.writeHead(206, header);
+
+        // Create a read stream for the video file
+        const file = fs.createReadStream("1.mp4", {start, end});
+
+        // Pipe the file stream to the response
+        file.pipe(res);
+
+    } else {
+        res.status(400).json({
+            message: "Invalid request"
+        })
+    }
+})
+
+
 app.listen(3000, function() {
     console.log("server is running at port 3000");
 })
