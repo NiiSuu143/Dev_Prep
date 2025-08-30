@@ -22,16 +22,16 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-
 const AuthRouter = require('./Routers/AuthRouter');
 const MovieRouter = require("./Routers/MovieRouter");
+const DiscoverRouter = require('./Routers/DiscoverRouter')
+const TvShowsRouter = require("./Routers/TvRouter")
+
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/movies", MovieRouter);
-
-
-
-
+app.use("/api/discover", DiscoverRouter);
+app.use("/api/tv", TvShowsRouter);
 
 
 app.listen(3001, function () {

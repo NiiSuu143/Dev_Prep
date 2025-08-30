@@ -1,20 +1,20 @@
-const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        // api key
-        Authorization: `Bearer ${process.env.TMDB_KEY}`
-    }
-};   
+const headers = {
+    accept: 'application/json',
+    // api key
+    Authorization: `Bearer ${process.env.TMDB_KEY} `
+};  
  
 const imageBASEURL = "https://image.tmdb.org/t/p/original/";
 const tmdbBASEURL = "https://api.themoviedb.org/3/"
+
+// humare beckend yaha se data leke ayega
 const TMDB_ENDPOINT = {
-    // Current Movies
-    fetchcurrentMovies: "/movie/now_playing",
+    // Discovery
+    fetchNowPlaying: "/movie/now_playing",
     fetchTrending: `/trending/all/week`,
     fetchPopular: `/trending/all/week`,
     fetchUpcoming: `/movie/upcoming?include_video=true`,
+
 // movies 
     fetchTopRated: `/movie/top_rated?include_video=true`,
     fetchActionMovies: `/discover/movie?language=en-US&with_genres=28`,
@@ -22,24 +22,29 @@ const TMDB_ENDPOINT = {
     fetchHorrorMovies: `/discover/movie?language=en-US&with_genres=27`,
     fetchRomanceMovies: `/discover/movie?language=en-US&with_genres=10749`,
     fetchAnimeMovies: '/discover/movie?language=en-US&with_genres=16',
+    fetchMovieVideos: (id) => `/movie/${id}/videos`,
+    fetchMovieDetails: (id) => `/movie/${id}`,
+
 // tv enpoints
     fetchActionTvShows: `/discover/tv?language=en-US&with_genres=10759`,
     fetchComedyTvShows: `/discover/tv?language=en-US&with_genres=35`,
     fetchMysteryTvShows: `/discover/tv?language=en-US&with_genres=9648`,
     fetchDramaTvShows: `/discover/tv?language=en-US&with_genres=18`,
     fetchCrimeTvShows: `/discover/tv?language=en-US&with_genres=80`,
+    fetchTvShowVideos: (id) => `/tv/${id}/videos`,
+    fetchTvShowDetails: (id) => `/tv/${id}`,
 };
 
 
-async function getMediaList(endpoint) {
-
-    const url = tmdbBASEURL + endpoint;
-    // db wala kaam hoh raha hai
-    const response = await fetch(url, options)
-    const data = await response.json() 
-    return data;  
+const tmdbApi = {
+    get: async (endpoint) => {
+        const url = tmdbBASEURL + endpoint;
+        const response = await fetch(url, { method: 'GET', headers: headers })
+        const data = await response.json();
+        return data;
+    }
 }
 
 module.exports={
-    getMediaList, TMDB_ENDPOINT
+    tmdbApi, TMDB_ENDPOINT
 }
