@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation";
-import ProfileSheet from "@/atom/ProfileSheet";
+import ProfileSheet from "@/components/atom/ProfileSheet";
 
 
 export const navLinks = [
@@ -69,7 +69,7 @@ export default function Header() {
               className=" py-2 bg-transparent  text-white font-medium focus:outline-none text-sm max-w-[150px]"
             />
           </div>
-          <ProfileSheet />
+          {/* <ProfileSheet /> */}
         </div>
       </div>
     </header>
