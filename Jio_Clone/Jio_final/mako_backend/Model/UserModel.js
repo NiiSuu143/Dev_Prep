@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
-
+const wishlistItemSchema = new mongoose.Schema({
+    poster_path: { type: String, required: true },
+    name: { type: String, required: true },
+    id: { type: String, required: true }
+});
 /*******************userModel*********************/
 // user create -> Jio cinema  -> set of rules
 const schemaRules = {
@@ -37,8 +41,7 @@ const schemaRules = {
     },
     role: {
         type: String,
-        // these are the only possible values for the role
-        enum: ["user", "admin", "feed curator", "moderator"],
+
         default: "user"
     },
     otp: {
@@ -47,7 +50,7 @@ const schemaRules = {
     otpExpiry: {
         type: Date
     },
-
+    wishlist: [wishlistItemSchema],
 }
 
 const userSchema = new mongoose.Schema(schemaRules);
@@ -57,11 +60,23 @@ userSchema.pre("save", function (next) {
     console.log("Pre save was called");
     this.confirmPassword = undefined;
     next();
+})
 
+// these are the only possible values for the role
+const validRoles = ["user", "admin", "feed curator", "moderator"];
+
+userSchema.pre("save", function (next) {
+   const isValid= validRoles.find((role)=>{return this.role==role});
+   if(isValid){
+    next();
+   }else{
+    next("Role is not allowed ")
+   }
 })
 userSchema.post("save", function () {
     console.log("post save was called");
     this.__v = undefined;
+    this.password = undefined;
 })
 // final touch point
 const UserModel = mongoose.model("User", userSchema);

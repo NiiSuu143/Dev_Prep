@@ -26,12 +26,18 @@ const AuthRouter = require('./Routers/AuthRouter');
 const MovieRouter = require("./Routers/MovieRouter");
 const DiscoverRouter = require('./Routers/DiscoverRouter')
 const TvShowsRouter = require("./Routers/TvRouter")
+const UserRouter = require("./Routers/UserRouter")
+const PaymentRouter = require("./Routers/PaymentRouter")
+const VideoRouter = require("./Routers/VideoRouter")
 
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/movies", MovieRouter);
 app.use("/api/discover", DiscoverRouter);
 app.use("/api/tv", TvShowsRouter);
+app.use("/api/user", UserRouter);
+app.use("/api/payment", PaymentRouter);
+app.use("/api/video", VideoRouter);
 
 
 app.listen(3001, function () {
