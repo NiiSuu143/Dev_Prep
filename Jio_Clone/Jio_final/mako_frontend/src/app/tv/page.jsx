@@ -2,7 +2,9 @@ import React from 'react'
 
 function Tv() {
   return (
-    <div>Tv</div>
+    <div>
+      <p className=" h-screen text-3xl flex justify-center items-center">Tv Page</p>
+    </div>
   )
 }
 

@@ -2,7 +2,9 @@ import React from 'react'
 
 function WatchList() {
   return (
-    <div>WatchList</div>
+    <div>
+      <p className=" h-screen text-3xl flex justify-center items-center">Watchlist Page</p>
+    </div>
   )
 }
 

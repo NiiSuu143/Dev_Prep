@@ -1,3 +1,6 @@
+import axios from "axios";
+import { resolve } from "styled-jsx/css";
+
 export const ENDPOINT = {
     // auth
     login: "/auth/login",
@@ -49,3 +52,8 @@ export const ENDPOINT = {
 
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+export const api = axios.create({
+    baseURL: API_BASE_URL,
+});
+

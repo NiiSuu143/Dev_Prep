@@ -2,7 +2,9 @@ import React from 'react'
 
 function Movies() {
   return (
-    <div>Movies</div>
+    <div>
+      <p className=" h-screen text-3xl flex justify-center items-center">Movies Page</p>
+    </div>
   )
 }
 

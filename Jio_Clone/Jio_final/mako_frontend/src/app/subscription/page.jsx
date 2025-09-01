@@ -2,7 +2,9 @@ import React from 'react'
 
 function Subscription() {
   return (
-    <div>Subscription</div>
+    <div>
+      <p className=" h-screen text-3xl flex justify-center items-center">Subcription Page</p>
+    </div>
   )
 }
 

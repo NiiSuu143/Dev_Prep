@@ -11,7 +11,7 @@ export const navLinks = [
   { name: "Movies", key: "movies", href: "/movies" },
   { name: "Tv Shows", key: "tv", href: "/tv" },
   { name: "Watchlist", key: "watchlist", href: "/watchlist" },
-  { name: "Jio+", key: "jio+", href: "/jio+" },
+  { name: "Mako+", key: "mako+", href: "/mako+" },
 ];
  
 
@@ -22,13 +22,13 @@ export default function Header() {
 
 
   return (
-     <header className="bg-[#0d0e10] py-4 w-full fixed top-0 z-50  border-b-2 border-b-grey">
+     <header className="bg-[#0d0e10] py-4 w-full fixed top-0 z-50 border-b-1 border-b-gray-700">
       <div className="lg:mx-auto mx-2 lg:px-4 flex items-center text-nowrap">
         <div className="flex">
           <Link href="/">
             <Image
               src="/logo.svg"
-              alt="JioCinema Logo"
+              alt="MakoCinema Logo"
               width={136}
               height={36}
               className="md:h-9 md:max-w-[136px] max-w-24"
