@@ -1,8 +1,10 @@
-import { getBannerData } from '@/lib/api'
+import { getBannerData, media } from '@/lib/api'
 import React, { Suspense } from 'react'
 import Skeleton from '../atom/Skeleton';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
 import Link from 'next/link';
+import Image from 'next/image';
+import { InboxIcon } from 'lucide-react';
 
 async function BannerSection({fetcher}) {
   return (
@@ -15,7 +17,18 @@ async function BannerSection({fetcher}) {
 
 async function BannerSectionContent({fetcher}) {
   const data = await fetcher();
-  // console.log("data : ", data);
+  // console.log(data);
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-[500px] py-12">
+        <InboxIcon
+          className="w-32 h-32 text-slate-400 mb-10"
+          strokeWidth={1.2}
+        />
+        <p className="text-lg text-gray-500">No items found.</p>
+      </div>
+    );
+  }
   return (
      <Carousel
       opts={{
@@ -26,9 +39,9 @@ async function BannerSectionContent({fetcher}) {
     >
       <CarouselContent className="">
         {data?.map((vid) => (
-          <CarouselItem key={vid.id} className="w-full max-w-[700px] h-[500px] border-2">
-            <h2>{vid.title}</h2>
-            {/* <Link href={getWatchUrl(vid.id, vid.media_type, vid?.poster_path)}>
+          <CarouselItem key={vid.id} className="w-full max-w-[700px] h-[500px]">
+            {/* <h2>{vid.title||vid.name}</h2> */}
+            {/* <Link href={getWatchUrl(vid.id, vid.media_type, vid?.poster_path)}> */}
               <Image
                 src={media(vid?.poster_path)}
                 alt=""
@@ -37,8 +50,7 @@ async function BannerSectionContent({fetcher}) {
                 className="w-full h-full bg-slate-600 rounded-lg object-cover"
                 quality={30}
               />
-            </Link> */}
-
+            {/* </Link> */}
           </CarouselItem>
         ))}
       </CarouselContent>

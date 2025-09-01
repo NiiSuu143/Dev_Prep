@@ -50,6 +50,7 @@ export const ENDPOINT = {
     fetchVideoThumbnail: (id) => `/video/thumbnail?videoId=${id}`,
 }
 
+export const media = (path) => `https://image.tmdb.org/t/p/original` + path;
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
