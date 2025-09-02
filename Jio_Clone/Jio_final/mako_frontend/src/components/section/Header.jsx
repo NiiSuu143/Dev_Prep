@@ -27,11 +27,11 @@ export default function Header() {
         <div className="flex">
           <Link href="/">
             <Image
-              src="/logo.svg"
+              src="/mako_original.png"
               alt="MakoCinema Logo"
-              width={136}
+              width={180}
               height={36}
-              className="md:h-9 md:max-w-[136px] max-w-24"
+              className="md:h-9 md:max-w-[180px] max-w-40"
             />
           </Link>
 
@@ -69,7 +69,7 @@ export default function Header() {
               className=" py-2 bg-transparent  text-white font-medium focus:outline-none text-sm max-w-[150px]"
             />
           </div>
-          {/* <ProfileSheet /> */}
+          <ProfileSheet />
         </div>
       </div>
     </header>

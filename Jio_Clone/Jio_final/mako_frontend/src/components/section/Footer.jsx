@@ -112,8 +112,8 @@ export default function Footer() {
                         Copyright © 2024 Viacom18 Media PVT LTD. All rights reserved.
                     </p>
                     <Image
-                        src="/jio-logo.png"
-                        alt="Jio Logo"
+                        src="/mako_logo.png"
+                        alt="Mako Logo"
                         width={48}
                         height={48}
                         className="md:h-12 md:w-12 h-10 w-10"
