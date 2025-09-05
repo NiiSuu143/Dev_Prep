@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser");
+const cors = require('cors');
 
 
 dotenv.config(); // env ke variables
@@ -20,6 +21,8 @@ mongoose.connect(dbLink)
 // middleWare -> user -> object is not empty
 app.use(express.json());
 app.use(cookieParser());
+// every routes can be used by some other service
+app.use(cors());
 
 
 const AuthRouter = require('./Routers/AuthRouter');
