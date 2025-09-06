@@ -18,7 +18,7 @@ function UserCard(props) {
           alt="profile_pic" 
           className='w-12 h-12 object-cover rounded-full'
         />
-        <h2>{userObject.userData.name}</h2>
+        <h2 className='font-semibold'>{userObject.userData.name}</h2>
     </Link>
   )
 }

@@ -106,7 +106,7 @@ function ChatWindow() {
   return <section className='w-[70%] h-full flex flex-col gap-4 items-center justify-center'>
     <div className='h-full w-full bg-chat-bg flex flex-col'>
       {/* topbar */}
-      <div className='bg-background py-2 px-4 flex items-center gap-2 shadow-sm'>
+      <div className='bg-background py-2 px-4 flex items-center gap-2 shadow-sm font-semibold'>
         <img 
           src={secondUser?.profile_pic||"/default-user.png"}
           alt="profile picture"
@@ -115,7 +115,7 @@ function ChatWindow() {
         <div>
           <h3>{secondUser?.name}</h3>
           {secondUser?.lastSeen && (
-            <p className='text-xs text-neutral-400'>
+            <p className='text-xs text-neutral-950'>
               last seen at {secondUser?.lastSeen}
             </p>
           )}
@@ -129,7 +129,7 @@ function ChatWindow() {
             key={index}
             data-sender={m.sender == userData.id}
             // break-words is the edge case where a single word is quite long, so we need to break that word before it breaks our ui
-            className='bg-white w-fit rounded-md p-2 shadow-sm max-w-[400px] break-words data-[sender=true]:ml-auto data-[sender=true]:bg-primary-light'
+            className='bg-white w-fit rounded-md p-2 shadow-sm max-w-[400px] break-words data-[sender=true]:ml-auto data-[sender=true]:bg-red-200'
           >
             <p>{m?.text}</p>
             <p className='text-xs text-neutral-500 text-end'>

@@ -17,7 +17,7 @@ function Profile(props) {
         navigate("/login");
     }
   return <div className='bg-background w-[30vw]'>
-            <div className='bg-green-400 text-white py-4 text-lg px-4 flex items-center gap-6'>
+            <div className='bg-red-500 text-white py-4 text-lg px-4 flex items-center gap-6'>
                 <button onClick={props.onBack}>
                     <ArrowLeft/>
                 </button>
@@ -40,7 +40,7 @@ function Profile(props) {
                     />
                     {isUploading ? (
                         <div className="absolute inset-0 flex items-center justify-center bg-black/10 z-10">
-                            <Loader2Icon className="w-6 h-6 text-primary-dense animate-spin z-10" />
+                            <Loader2Icon className="w-6 h-6 text-red-700 animate-spin z-10" />
                         </div>
                     ) : (
                         <div className="absolute inset-0 hidden group-hover:flex items-center justify-center bg-black/30 z-10">
@@ -53,7 +53,7 @@ function Profile(props) {
 
                 {/* Your Name */}
                 <div className='flex flex-col bg-white w-full py-4 px-8'>
-                    <label className='text-sm text-primary-dense mb-2'>Your name</label>
+                    <label className='text-sm text-red-700 mb-2'>Your name</label>
                     <div className='flex items-center w-full'>
                         <input
                             value={name} 
@@ -88,7 +88,7 @@ function Profile(props) {
 
                 {/* For Status */}
                 <div className='flex flex-col bg-white w-full py-4 px-8'>
-                    <label className='text-sm text-primary-dense mb-2'>Status</label>
+                    <label className='text-sm text-red-700 mb-2'>Status</label>
                     <div className='flex items-center w-full'>
                         <input 
                             value={status}
@@ -103,7 +103,7 @@ function Profile(props) {
                         </button>
                     </div>
                 </div>
-                <button onClick={handleLogout} className='text-white px-4 py-3 rounded-[5px] bg-primary hover:bg-primary-dense'>Logout</button>
+                <button onClick={handleLogout} className='text-white px-4 py-3 rounded-[5px] bg-red-500 hover:bg-red-700'>Logout</button>
             </div>
           </div>
 }
