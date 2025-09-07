@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/section/Header";
 import Footer from "@/components/section/footer";
 import { Inter } from "next/font/google";
+import StoreProvider from "@/providers/storeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth " data-scroll-behavior="smooth">
       <body className={`${inter.className} antialiased`}>
-        <Header/>
-          {children}
-        <Footer/>
+        <StoreProvider>
+          <Header/>
+            {children}
+          <Footer/>
+        </StoreProvider>
       </body>
     </html>
   );

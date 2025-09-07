@@ -109,7 +109,7 @@ export default function Footer() {
 
                 <div className="md:text-center text-start mt-8 flex w-full justify-between items-center bg-[#202123] py-4 px-4">
                     <p className="md:text-sm text-xs">
-                        Copyright © 2024 Viacom18 Media PVT LTD. All rights reserved.
+                        Copyright © 2025 Viacom18 Media PVT LTD. All rights reserved.
                     </p>
                     <Image
                         src="/mako_logo.png"

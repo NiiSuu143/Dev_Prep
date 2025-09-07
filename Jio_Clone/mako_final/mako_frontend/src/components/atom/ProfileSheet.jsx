@@ -4,29 +4,30 @@ import Image from "next/image";
 import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "../section/Header";
-// import { useSelector, useDispatch } from "react-redux";
-// import { userLoggedOutDetails } from "@/redux/userSlice";
-// import { api, ENDPOINT } from "@/lib/api";
-// import { useRouter } from "next/navigation";
+import { useSelector, useDispatch } from "react-redux";
+import { userLoggedOutDetails } from "@/redux/userSlice";
+import { api, ENDPOINT } from "@/lib/api";
+import { useRouter } from "next/navigation";
 
 const ProfileSheet = () => {
     const [open, setOpen] = useState(false);
-    // const userData = useSelector((state) => state.user);
-    // const dispatch = useDispatch();
-    // const router = useRouter();
-    // const handleLogout = async () => {
-    //     try {
-    //         const res = await api.get(ENDPOINT.logout);
-    //         console.log("res",res.data);
-    //         if (res.data.status === "success") {
-    //             dispatch(userLoggedOutDetails());
-    //             // send to home page 
-    //             router.push("/");
-    //         }
-    //     } catch (err) {
-    //         console.log("err: ", err);
-    //     }
-    // };
+    const userData = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const router = useRouter();
+    
+    const handleLogout = async () => {
+        try {
+            const res = await api.get(ENDPOINT.logout);
+            console.log("res",res.data);
+            if (res.data.status === "success") {
+                dispatch(userLoggedOutDetails());
+                // send to home page 
+                router.push("/");
+            }
+        } catch (err) {
+            console.log("err: ", err);
+        }
+    };
 
     return (
         <Sheet open={open} onOpenChange={setOpen}>
@@ -41,7 +42,7 @@ const ProfileSheet = () => {
             </SheetTrigger>
             <SheetContent side={"right"} className="px-6">
                 <div className="bg-slate-700/30 p-6 flex flex-col items-center gap-2 mt-[100px] rounded-lg">
-                    {/* {!userData.isLoggedIn ? <Image
+                    {!userData.isLoggedIn ? <Image
                         src="/profile.avif"
                         alt="Profile Icon"
                         className="h-[100px] w-[100px] rounded-full -mt-[60px]"
@@ -50,11 +51,11 @@ const ProfileSheet = () => {
                     /> :
                      <div className="ml-4 h-10 w-10 rounded-full bg-[#0059A3] text-xl font-semibold flex items-center justify-center">
                         {userData.user ? userData.user.name.charAt(0).toUpperCase() : ""}
-                    </div>} */}
+                    </div>}
                     <p className="text-xl font-bold capitalize">
-                        {/* {userData.isLoggedIn ? userData.user.name : "Guest"} */}
+                        {userData.isLoggedIn ? userData.user.name : "Guest"}
                     </p>
-                    {/* <Link
+                    <Link
                         href={`${userData.isLoggedIn ? "/" : "/login"}`}
                         className="rounded-full font-medium mt-4 text-base px-4 py-2 bg-pink-600"
                         onClick={() => {
@@ -65,7 +66,7 @@ const ProfileSheet = () => {
                         }}
                     >
                         {userData.isLoggedIn ? "Logout" : "Login"}
-                    </Link> */}
+                    </Link>
                 </div>
                 <div className="divide-y my-4">
                     <Link

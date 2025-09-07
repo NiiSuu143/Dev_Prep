@@ -22,7 +22,10 @@ mongoose.connect(dbLink)
 app.use(express.json());
 app.use(cookieParser());
 // every routes can be used by some other service
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000", // your React/Next frontend
+    credentials: true                // allow cookies, Authorization headers
+}));
 
 
 const AuthRouter = require('./Routers/AuthRouter');
