@@ -1,26 +1,26 @@
-import React, { Suspense } from 'react'
-import Skeleton from '../atom/Skeleton'
-import { getTopRatedData, media } from '@/lib/api'
-import Image from 'next/image';
-import { InboxIcon } from 'lucide-react';
+import React, { Suspense } from "react";
+import Skeleton from "../atom/Skeleton";
+import { getTopRatedData, getWatchUrl, media } from "@/lib/api";
+import Image from "next/image";
+import { InboxIcon } from "lucide-react";
+import Link from "next/link";
 
 function CategoriesSection({ title, id, fetcher }) {
   return (
     <div className="py-8 px-6">
-        <h2 id={id} className="text-2xl font-medium mb-6 scroll-m-[100px]">
-            {title}
-        </h2>
-        <Suspense fallback={<CategoriesFallBack/>}>
-          <CategoriesContent fetcher={fetcher}/>
-        </Suspense>
-        
+      <h2 id={id} className="text-2xl font-medium mb-6 scroll-m-[100px]">
+        {title}
+      </h2>
+      <Suspense fallback={<CategoriesFallBack />}>
+        <CategoriesContent fetcher={fetcher} />
+      </Suspense>
     </div>
-  )
+  );
 }
 
-async function CategoriesContent({fetcher}) {
+async function CategoriesContent({ fetcher }) {
   const data = await fetcher();
-  
+
   if (!data || data.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center w-full h-[300px] py-12">
@@ -32,21 +32,28 @@ async function CategoriesContent({fetcher}) {
       </div>
     );
   }
-  return <ul className='flex gap-4 w-full overflow-scroll scrollbar-hide snap-x snap-mandatory px-4'>
+  return (
+    <ul className="flex gap-4 w-full overflow-scroll scrollbar-hide snap-x snap-mandatory px-4">
       {data?.map((post) => {
         return (
-          <Image
-            src={media(post?.poster_path)}
-            alt=""
-            width={200}
-            height={300}
-            className="min-w-[200px] h-[300px] rounded-lg object-cover"
-            quality={30}
+          <Link
+            href={getWatchUrl(post.id, post.media_type, post?.poster_path)}
             key={post.id}
-          />
-        )
+          >
+            <Image
+              src={media(post?.poster_path)}
+              alt=""
+              width={200}
+              height={300}
+              className="min-w-[200px] h-[300px] rounded-lg object-cover"
+              quality={30}
+              key={post.id}
+            />
+          </Link>
+        );
       })}
-    </ul> 
+    </ul>
+  );
 }
 
 function CategoriesFallBack() {
@@ -56,7 +63,7 @@ function CategoriesFallBack() {
         <Skeleton key={index} className="min-w-[200px] h-[300px] " />
       ))}
     </ul>
-  )
+  );
 }
 
-export default CategoriesSection
+export default CategoriesSection;

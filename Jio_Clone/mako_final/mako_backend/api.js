@@ -45,7 +45,6 @@ app.use("/api/user", UserRouter);
 app.use("/api/payment", PaymentRouter);
 app.use("/api/video", VideoRouter);
 
-
-app.listen(3001, function () {
-    console.log("Server started on port 3001");
+app.listen(process.env.PORT, function () {
+    console.log(`Server started on port ${process.env.PORT}`);
 })

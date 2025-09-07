@@ -1,4 +1,4 @@
-import { getBannerData, media } from '@/lib/api'
+import { getBannerData, getWatchUrl, media } from '@/lib/api'
 import React, { Suspense } from 'react'
 import Skeleton from '../atom/Skeleton';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
@@ -40,8 +40,8 @@ async function BannerSectionContent({fetcher}) {
       <CarouselContent className="">
         {data?.map((vid) => (
           <CarouselItem key={vid.id} className="w-full max-w-[700px] h-[500px]">
-            {/* <h2>{vid.title||vid.name}</h2> */}
-            {/* <Link href={getWatchUrl(vid.id, vid.media_type, vid?.poster_path)}> */}
+            <h2>{vid.title||vid.name}</h2>
+            <Link href={getWatchUrl(vid.id, vid.media_type, vid?.poster_path)}>
               <Image
                 src={media(vid?.poster_path)}
                 alt=""
@@ -50,7 +50,7 @@ async function BannerSectionContent({fetcher}) {
                 className="w-full h-full bg-slate-600 rounded-lg object-cover"
                 quality={30}
               />
-            {/* </Link> */}
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>
