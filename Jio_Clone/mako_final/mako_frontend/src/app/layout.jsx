@@ -3,7 +3,9 @@ import "./globals.css";
 import Header from "@/components/section/Header";
 import Footer from "@/components/section/footer";
 import { Inter } from "next/font/google";
-import StoreProvider from "@/providers/storeProvider";
+import StoreProvider from "@/providers/StoreProvider";
+import AuthProvider from "@/providers/AuthProvider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,9 +18,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth " data-scroll-behavior="smooth">
       <body className={`${inter.className} antialiased`}>
         <StoreProvider>
-          <Header/>
-            {children}
-          <Footer/>
+          <AuthProvider>
+            <Header/>
+              {children}
+            <Footer/>
+          </AuthProvider>
         </StoreProvider>
       </body>
     </html>

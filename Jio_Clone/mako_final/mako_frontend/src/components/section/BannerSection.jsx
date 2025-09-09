@@ -40,7 +40,7 @@ async function BannerSectionContent({fetcher}) {
       <CarouselContent className="">
         {data?.map((vid) => (
           <CarouselItem key={vid.id} className="w-full max-w-[700px] h-[500px]">
-            <h2>{vid.title||vid.name}</h2>
+            {/* <h2>{vid.title||vid.name}</h2> */}
             <Link href={getWatchUrl(vid.id, vid.media_type, vid?.poster_path)}>
               <Image
                 src={media(vid?.poster_path)}
