@@ -2,6 +2,7 @@
 
 // import ShareButton from "@/components/atom/ShareButton";
 
+import ShareButton from "@/components/atom/ShareButton";
 import WishlistButton from "@/components/atom/WishListButton";
 import { buttonVariants } from "@/components/ui/button";
 import { api, ENDPOINT } from "@/lib/api";
@@ -31,7 +32,7 @@ const page = async ({ searchParams: { id,poster_path } }) => {
                                 poster_path:poster_path
                             }}
                         />
-                        {/* <ShareButton/> */}
+                        <ShareButton/>
                     </div>
                 </>
             ) : (
