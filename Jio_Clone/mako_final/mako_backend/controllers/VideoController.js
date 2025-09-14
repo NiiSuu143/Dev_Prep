@@ -74,7 +74,8 @@ const getThumbnail = async (req, res) => {
         if (!videoId) {
             return res.status(400).json({ error: 'Video ID is required' });
         }
-        const thumbnailPath = path.join(__dirname, '..', 'thumbnails', `${videoId}.jpg`);       
+        const thumbnailPath = path.join(__dirname, '..', 'thumbnails', `${videoId}.png`);  
+             
         if (!fs.existsSync(thumbnailPath)) {
            await generateThumbnailUtil(videoId)
         }
